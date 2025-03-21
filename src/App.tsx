@@ -1,5 +1,11 @@
+import { Chat } from './components/chat';
+
 function App() {
-  return <h1 className="text-xl font-bold underline">Hello world!</h1>;
+  return (
+    <main className="min-h-[100dvh] flex items-center justify-center">
+      <Chat />
+    </main>
+  );
 }
 
 export default App;
