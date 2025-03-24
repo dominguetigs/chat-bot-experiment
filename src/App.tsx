@@ -1,9 +1,12 @@
 import { Chat } from './components/chat';
+import { ThemeProvider } from './hooks/use-theme';
 
 function App() {
   return (
     <main className="min-h-[100dvh] flex items-center justify-center">
-      <Chat />
+      <ThemeProvider>
+        <Chat />
+      </ThemeProvider>
     </main>
   );
 }
