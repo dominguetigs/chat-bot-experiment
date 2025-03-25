@@ -9,15 +9,10 @@ export function Chat() {
   return (
     <Card className="h-[100dvh] w-full shadow-none rounded-none sm:h-[70vh] sm:w-[700px] sm:shadow-lg sm:rounded-lg gap-0 py-0">
       <ChatHeader />
-
       <Separator />
-
       <ChatContent />
-
-      <div className="mt-auto">
-        <Separator />
-        <ChatFooter />
-      </div>
+      <Separator />
+      <ChatFooter />
     </Card>
   );
 }
