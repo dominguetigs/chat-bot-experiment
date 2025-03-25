@@ -26,7 +26,7 @@ export function ChatEmptyState() {
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className="flex flex-col justify-center items-center h-screen bg-background"
     >
-      <div className="w-40 h-40">{View}</div>
+      <div className="w-36 h-36">{View}</div>
       <span className="text-sm text-center font-semibold text-slate-700">
         No messages yet. <br />
         How can I help you?
