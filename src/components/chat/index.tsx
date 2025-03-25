@@ -7,7 +7,7 @@ import { ChatContent } from './content';
 
 export function Chat() {
   return (
-    <Card className="h-[100dvh] w-full shadow-none rounded-none sm:h-[70vh] sm:w-[700px] sm:shadow-lg sm:rounded-lg">
+    <Card className="h-[100dvh] w-full shadow-none rounded-none sm:h-[70vh] sm:w-[700px] sm:shadow-lg sm:rounded-lg gap-0 py-4">
       <ChatHeader />
 
       <Separator />
