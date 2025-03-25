@@ -1,9 +1,17 @@
 import { useState, useRef } from 'react';
-import { Button } from '../ui/button';
+
 import { Mic, Pause, Trash, Send } from 'lucide-react';
+
 import { toast } from 'sonner';
 
-export function AudioRecorder({ onSendAudio }: { onSendAudio: (audioUrl: string) => void }) {
+import { Button } from '../ui/button';
+
+interface AudioRecorderProps {
+  onSendAudio: (audioUrl: string) => void;
+  disabled: boolean;
+}
+
+export function AudioRecorder({ onSendAudio, disabled }: AudioRecorderProps) {
   const [isRecording, setIsRecording] = useState<boolean>(false);
   const [audioURL, setAudioURL] = useState<string | null>(null);
 
@@ -61,13 +69,18 @@ export function AudioRecorder({ onSendAudio }: { onSendAudio: (audioUrl: string)
 
   return (
     <>
-      <Button variant="ghost" size="icon" onClick={isRecording ? stopRecording : startRecording}>
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={isRecording ? stopRecording : startRecording}
+        disabled={disabled}
+      >
         {isRecording ? <Pause className="text-red-500" /> : <Mic />}
       </Button>
 
       {audioURL && (
         <div className="absolute left-0 flex items-center justify-end gap-2 w-full py-3 px-4 bg-slate-50 dark:bg-slate-900 rounded-none sm:rounded-b-lg">
-          <Button variant="ghost" size="icon" onClick={handleDeleteAudio}>
+          <Button className="text-red-500" variant="ghost" size="icon" onClick={handleDeleteAudio}>
             <Trash />
           </Button>
           <audio controls src={audioURL}></audio>
