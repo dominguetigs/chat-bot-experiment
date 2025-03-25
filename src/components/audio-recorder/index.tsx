@@ -33,7 +33,7 @@ export function AudioRecorder({ onSendAudio, disabled }: AudioRecorderProps) {
       };
 
       mediaRecorderRef.current.onstop = () => {
-        const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
+        const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/mp4' });
         const url = URL.createObjectURL(audioBlob);
         setAudioURL(url);
         audioChunksRef.current = [];
