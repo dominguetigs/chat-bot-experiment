@@ -43,7 +43,7 @@ export function ChatContent() {
             className={`flex ${sender === 'user' ? 'justify-end' : 'justify-start'} mb-2`}
           >
             <div
-              className={`py-1 px-2 max-w-[70%] rounded-lg text-sm text-white ${
+              className={`py-1 px-2 max-w-[70%] rounded-lg text-sm text-white break-words ${
                 sender === 'user' ? 'bg-indigo-600' : 'bg-gray-600'
               }`}
             >
