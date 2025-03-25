@@ -83,7 +83,12 @@ export function AudioRecorder({ onSendAudio, disabled }: AudioRecorderProps) {
           <Button className="text-red-500" variant="ghost" size="icon" onClick={handleDeleteAudio}>
             <Trash />
           </Button>
-          <audio controls src={audioURL}></audio>
+          <audio
+            className="max-w-full"
+            controlsList="nodownload noplaybackrate"
+            controls
+            src={audioURL}
+          ></audio>
           <Button variant="ghost" size="icon" onClick={handleSendAudio}>
             <Send />
           </Button>
