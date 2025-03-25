@@ -26,7 +26,7 @@
 
 - [About](#about)
 - [Features](#features)
-- [Technologies](#technologies)
+- [Technologies and libraries](#technologies)
 - [Best Practices & Tooling](#best-practices-and-tooling)
 - [Project Structure](#project-structure)
 - [How to Use](#how-to-use)
