@@ -36,7 +36,7 @@ export function ChatContent() {
                 sender === 'user' ? 'bg-blue-600' : 'bg-gray-600'
               }`}
             >
-              {audio ? <audio controls src={audio} /> : text}
+              {audio ? <audio className="mb-1" controls src={audio} /> : text}
               <div className="text-xs text-gray-400">{formatTime(id)}</div>
             </div>
           </motion.div>
