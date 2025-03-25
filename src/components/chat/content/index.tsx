@@ -6,15 +6,26 @@ import { useChat } from '@/stores';
 import { formatTime } from '@/utils';
 
 import { ChatEmptyState } from '../empty-state';
+import { ChatLoading } from '../loading';
 
 export function ChatContent() {
-  const { messages } = useChat();
+  const { messages, isLoading, setIsLoading } = useChat();
 
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+    if (!isLoading) {
+      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages, isLoading]);
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);
+
+  if (isLoading) {
+    return <ChatLoading />;
+  }
 
   if (messages.length === 0) {
     return <ChatEmptyState />;
@@ -36,7 +47,16 @@ export function ChatContent() {
                 sender === 'user' ? 'bg-indigo-600' : 'bg-gray-600'
               }`}
             >
-              {audio ? <audio className="mb-1" controls src={audio} /> : text}
+              {audio ? (
+                <audio
+                  className="mb-1"
+                  controlsList="nodownload noplaybackrate"
+                  src={audio}
+                  controls
+                />
+              ) : (
+                text
+              )}
               <div className="text-xs text-gray-400">{formatTime(id)}</div>
             </div>
           </motion.div>

@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/button';
 
 export function ChatFooter() {
   const [inputValue, setInputValue] = useState('');
-  const { addMessage } = useChat();
+  const { addMessage, isLoading } = useChat();
 
   const handleUserMessage = (text: string) => {
     addMessage(text, undefined, 'user');
@@ -57,13 +57,14 @@ export function ChatFooter() {
         value={inputValue}
         onChange={e => setInputValue(e.target.value)}
         onKeyDown={handleKeyDown}
+        disabled={isLoading}
       />
 
-      <Button variant="ghost" size="icon" onClick={handleSendMessage}>
+      <Button variant="ghost" size="icon" onClick={handleSendMessage} disabled={isLoading}>
         <Send />
       </Button>
 
-      <AudioRecorder onSendAudio={handleAudioMessage} />
+      <AudioRecorder onSendAudio={handleAudioMessage} disabled={isLoading} />
     </div>
   );
 }
