@@ -17,7 +17,7 @@
 
 <h3 align="center">
   <a
-    href="https://chat-bot-experiment-app-gt62.vercel.app/"
+    href="https://chat-bot-experiment.vercel.app"
     target="_blank"
   >Access the demo</a>
 </h3>
