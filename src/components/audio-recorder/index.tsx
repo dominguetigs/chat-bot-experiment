@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { Button } from '../ui/button';
 import { Mic, Pause, Trash, Send } from 'lucide-react';
+import { toast } from 'sonner';
 
 export function AudioRecorder({ onSendAudio }: { onSendAudio: (audioUrl: string) => void }) {
   const [isRecording, setIsRecording] = useState<boolean>(false);
@@ -12,7 +13,7 @@ export function AudioRecorder({ onSendAudio }: { onSendAudio: (audioUrl: string)
   const startRecording = async () => {
     try {
       if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        alert('Audio recording is not supported in your browser.');
+        toast.error('Audio recording is not supported in your browser.');
         return;
       }
 
@@ -34,7 +35,7 @@ export function AudioRecorder({ onSendAudio }: { onSendAudio: (audioUrl: string)
       setIsRecording(true);
     } catch (error) {
       console.error('Error starting recording:', error);
-      alert('Failed to start recording. Please check your microphone permissions.');
+      toast.error('Failed to start recording. Please check your microphone permissions.');
     }
   };
 

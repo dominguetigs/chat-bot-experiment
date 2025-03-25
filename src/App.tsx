@@ -1,4 +1,5 @@
 import { Chat } from './components/chat';
+import { Toaster } from './components/ui/sonner';
 import { ThemeProvider } from './hooks/use-theme';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
       <ThemeProvider>
         <Chat />
       </ThemeProvider>
+      <Toaster />
     </main>
   );
 }
