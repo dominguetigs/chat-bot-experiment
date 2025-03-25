@@ -10,7 +10,7 @@ export function ChatHeader() {
         <AvatarFallback>C</AvatarFallback>
       </Avatar>
 
-      <h3 className="ml-2 text-md font-semibold">Cornellius</h3>
+      <h3 className="ml-2 text-md font-semibold">Newton</h3>
 
       <div className="ml-auto">
         <ModeToggle />
