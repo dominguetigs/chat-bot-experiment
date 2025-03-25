@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { AudioRecorder } from '@/components/audio-recorder';
 
 import { useChat } from '@/stores';
 import { generateBotResponse } from '@/utils';
@@ -11,11 +11,11 @@ export function ChatFooter() {
   const { addMessage } = useChat();
 
   const handleUserMessage = (text: string) => {
-    addMessage(text, 'user');
+    addMessage(text, undefined, 'user');
 
     const botResponse = generateBotResponse();
 
-    addMessage(botResponse, 'bot');
+    addMessage(botResponse, undefined, 'bot');
     setInputValue('');
   };
 
@@ -31,8 +31,16 @@ export function ChatFooter() {
     }
   };
 
+  const handleAudioMessage = (audioUrl: string) => {
+    addMessage(undefined, audioUrl, 'user');
+
+    const botResponse = generateBotResponse();
+
+    addMessage(botResponse, undefined, 'bot');
+  };
+
   return (
-    <div className="flex items-center pt-4 px-4">
+    <div className="relative flex items-center p-4 ">
       <Input
         className="flex-grow mr-2"
         placeholder="Type your message..."
@@ -40,7 +48,8 @@ export function ChatFooter() {
         onChange={e => setInputValue(e.target.value)}
         onKeyDown={handleKeyDown}
       />
-      <Button onClick={handleSendMessage}>Send</Button>
+
+      <AudioRecorder onSendAudio={handleAudioMessage} />
     </div>
   );
 }

@@ -16,22 +16,22 @@ export function ChatContent() {
 
   return (
     <ScrollArea className="h-full overflow-y-auto">
-      <div className="flex flex-col p-4 bg-slate-50 dark:bg-slate-900">
-        {messages.map(message => (
+      <div className="flex flex-col p-4 ">
+        {messages.map(({ id, text, audio, sender }) => (
           <motion.div
-            key={message.id}
+            key={id}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} mb-2`}
+            className={`flex ${sender === 'user' ? 'justify-end' : 'justify-start'} mb-2`}
           >
             <div
               className={`py-1 px-2 max-w-[70%] rounded-lg text-sm text-white ${
-                message.sender === 'user' ? 'bg-blue-600' : 'bg-gray-600'
+                sender === 'user' ? 'bg-blue-600' : 'bg-gray-600'
               }`}
             >
-              {message.text}
-              <div className="text-xs text-gray-400">{formatTime(message.id)}</div>
+              {audio ? <audio controls src={audio} /> : text}
+              <div className="text-xs text-gray-400">{formatTime(id)}</div>
             </div>
           </motion.div>
         ))}
