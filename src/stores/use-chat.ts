@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-import { BOT_TIMEOUT } from '@/constants';
+import { BOT_TIMEOUT, TIMEOUT } from '@/constants';
 import { generateBotResponse } from '@/utils';
 
 export interface Message {
@@ -14,12 +14,30 @@ export interface Message {
 interface ChatStore {
   messages: Message[];
   addMessage: (text: string | undefined, audio: string | undefined, sender: 'user' | 'bot') => void;
+  isLoading: boolean;
+  setIsLoading: (isLoading: boolean) => void;
 }
 
 export const useChat = create<ChatStore>()(
   persist(
     set => ({
       messages: [],
+      isLoading: true,
+
+      setIsLoading: (isLoading: boolean) => {
+        if (isLoading) {
+          set(state => ({ ...state, isLoading }));
+          return;
+        }
+
+        setTimeout(() => {
+          set(state => ({
+            ...state,
+            isLoading,
+          }));
+        }, TIMEOUT);
+      },
+
       addMessage: (text, audio, sender) =>
         set(state => {
           const updatedMessages = [...state.messages, { id: Date.now(), text, audio, sender }];
@@ -42,6 +60,12 @@ export const useChat = create<ChatStore>()(
     }),
     {
       name: 'chat-history',
+
+      onRehydrateStorage: () => state => {
+        if (state) {
+          state.setIsLoading(true);
+        }
+      },
     },
   ),
 );
