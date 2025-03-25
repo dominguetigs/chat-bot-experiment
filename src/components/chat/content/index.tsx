@@ -5,6 +5,8 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { useChat } from '@/stores';
 import { formatTime } from '@/utils';
 
+import { ChatEmptyState } from '../empty-state';
+
 export function ChatContent() {
   const { messages } = useChat();
 
@@ -13,6 +15,10 @@ export function ChatContent() {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
+
+  if (messages.length === 0) {
+    return <ChatEmptyState />;
+  }
 
   return (
     <ScrollArea className="h-full overflow-y-auto">
