@@ -66,7 +66,7 @@ export function AudioRecorder({ onSendAudio }: { onSendAudio: (audioUrl: string)
       </Button>
 
       {audioURL && (
-        <div className="absolute left-0 flex items-center justify-end gap-2 w-full py-3 px-4 bg-slate-900 rounded-none sm:rounded-b-lg">
+        <div className="absolute left-0 flex items-center justify-end gap-2 w-full py-3 px-4 bg-slate-50 dark:bg-slate-900 rounded-none sm:rounded-b-lg">
           <Button variant="ghost" size="icon" onClick={handleDeleteAudio}>
             <Trash />
           </Button>

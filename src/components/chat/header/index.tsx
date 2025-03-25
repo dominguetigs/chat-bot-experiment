@@ -4,11 +4,12 @@ import { ModeToggle } from '@/components/mode-toggle';
 
 export function ChatHeader() {
   return (
-    <div className="flex items-center p-4">
+    <div className="flex items-center p-4 bg-slate-50 dark:bg-slate-900 rounded-none sm:rounded-t-lg">
       <Avatar>
         <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
         <AvatarFallback>C</AvatarFallback>
       </Avatar>
+
       <h3 className="ml-2 text-md font-semibold">Cornellius</h3>
 
       <div className="ml-auto">

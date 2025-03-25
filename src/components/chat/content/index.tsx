@@ -22,7 +22,7 @@ export function ChatContent() {
 
   return (
     <ScrollArea className="h-full overflow-y-auto">
-      <div className="flex flex-col p-4 ">
+      <div className="flex flex-col p-4">
         {messages.map(({ id, text, audio, sender }) => (
           <motion.div
             key={id}
@@ -33,7 +33,7 @@ export function ChatContent() {
           >
             <div
               className={`py-1 px-2 max-w-[70%] rounded-lg text-sm text-white ${
-                sender === 'user' ? 'bg-blue-600' : 'bg-gray-600'
+                sender === 'user' ? 'bg-indigo-600' : 'bg-gray-600'
               }`}
             >
               {audio ? <audio className="mb-1" controls src={audio} /> : text}

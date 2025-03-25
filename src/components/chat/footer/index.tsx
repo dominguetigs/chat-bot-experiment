@@ -40,9 +40,9 @@ export function ChatFooter() {
   };
 
   return (
-    <div className="relative flex items-center p-4 ">
+    <div className="relative flex items-center p-4 bg-slate-50 dark:bg-slate-900 rounded-none sm:rounded-b-lg">
       <Input
-        className="flex-grow mr-2"
+        className="flex-grow mr-2 bg-background"
         placeholder="Type your message..."
         value={inputValue}
         onChange={e => setInputValue(e.target.value)}
