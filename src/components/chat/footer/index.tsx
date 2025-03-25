@@ -5,6 +5,8 @@ import { AudioRecorder } from '@/components/audio-recorder';
 
 import { useChat } from '@/stores';
 import { generateBotResponse } from '@/utils';
+import { Send } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export function ChatFooter() {
   const [inputValue, setInputValue] = useState('');
@@ -31,12 +33,20 @@ export function ChatFooter() {
     }
   };
 
-  const handleAudioMessage = (audioUrl: string) => {
-    addMessage(undefined, audioUrl, 'user');
+  const handleAudioMessage = async (audioUrl: string) => {
+    const response = await fetch(audioUrl);
+    const blob = await response.blob();
+    const reader = new FileReader();
 
-    const botResponse = generateBotResponse();
+    reader.onloadend = () => {
+      const base64data = reader.result as string;
+      addMessage(undefined, base64data, 'user');
 
-    addMessage(botResponse, undefined, 'bot');
+      const botResponse = generateBotResponse();
+      addMessage(botResponse, undefined, 'bot');
+    };
+
+    reader.readAsDataURL(blob);
   };
 
   return (
@@ -48,6 +58,10 @@ export function ChatFooter() {
         onChange={e => setInputValue(e.target.value)}
         onKeyDown={handleKeyDown}
       />
+
+      <Button variant="ghost" size="icon" onClick={handleSendMessage}>
+        <Send />
+      </Button>
 
       <AudioRecorder onSendAudio={handleAudioMessage} />
     </div>
