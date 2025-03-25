@@ -39,7 +39,7 @@ A modern and interactive chat bot application built with React, TypeScript, and 
 
 <a id="features"></a>
 
-## :dart: Main features
+## :dart: Features
 
 - Modern and responsive UI
 - Dark mode support
@@ -55,14 +55,16 @@ A modern and interactive chat bot application built with React, TypeScript, and 
 
 ## :rocket: Technologies and libraries
 
+The project was developed using the following technologies and libraries:
+
 - [React](https://react.dev/) - A JavaScript library for building user interfaces
 - [TypeScript](https://www.typescriptlang.org/) - JavaScript with syntax for types
 - [Vite](https://vitejs.dev/) - Next Generation Frontend Tooling
 - [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
 - [Radix UI](https://www.radix-ui.com/) - Unstyled, accessible components
 - [Framer Motion](https://www.framer.com/motion/) - A production-ready motion library for React
-- [Zustand](https://github.com/pmndrs/zustand) - A small, fast and scalable state management solution
-- [Lottie React](https://lottiefiles.com/react-web) - Lottie animations for React
+- [Zustand](https://zustand-demo.pmnd.rs/) - A small, fast and scalable state management solution
+- [LottieFiles](https://lottiefiles.com/react-web) - Lottie animations for React
 - [Sonner](https://sonner.emilkowal.ski/) - Toast notifications
 
 <a id="best-practices-and-tooling"></a>
@@ -115,8 +117,8 @@ This project follows modern best practices to ensure code quality, consistency, 
 ## :heavy_check_mark: :iphone: Mobile Result
 
 <h1 align="center">
-    <img alt="Mobile light result" src=".github/mobile-light.png" width="150px">
-    <img alt="Mobile dark result" src=".github/mobile-dark.png" width="150px">
+    <img alt="Mobile light result" src=".github/mobile-light.png" width="300px">
+    <img alt="Mobile dark result" src=".github/mobile-dark.png" width="300px">
 </h1>
 
 <a id="how-to-use"></a>
