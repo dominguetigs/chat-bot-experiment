@@ -49,7 +49,7 @@ export function ChatContent() {
             >
               {audio ? (
                 <audio
-                  className="mb-1"
+                  className="mb-1 max-w-full"
                   controlsList="nodownload noplaybackrate"
                   src={audio}
                   controls
