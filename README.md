@@ -117,8 +117,8 @@ This project follows modern best practices to ensure code quality, consistency, 
 ## :heavy_check_mark: :iphone: Mobile Result
 
 <h1 align="center">
-    <img alt="Mobile light result" src=".github/mobile-light.png" width="300px">
-    <img alt="Mobile dark result" src=".github/mobile-dark.png" width="300px">
+    <img alt="Mobile light result" src=".github/mobile-light.png" width="350px">
+    <img alt="Mobile dark result" src=".github/mobile-dark.png" width="350px">
 </h1>
 
 <a id="how-to-use"></a>
