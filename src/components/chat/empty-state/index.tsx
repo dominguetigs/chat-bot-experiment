@@ -20,17 +20,24 @@ export function ChatEmptyState() {
   }, [setSpeed]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="flex flex-col justify-center items-center h-screen bg-background"
-    >
-      <div className="w-36 h-36">{View}</div>
-      <span className="text-sm text-center font-semibold text-slate-700">
+    <div className="flex flex-col justify-center items-center h-screen bg-background">
+      <motion.div
+        initial={{ opacity: 0, y: -15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="w-32 h-32"
+      >
+        {View}
+      </motion.div>
+      <motion.span
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="text-sm text-center font-semibold text-slate-700"
+      >
         No messages yet. <br />
         How can I help you?
-      </span>
-    </motion.div>
+      </motion.span>
+    </div>
   );
 }
