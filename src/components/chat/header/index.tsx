@@ -7,7 +7,7 @@ export function ChatHeader() {
     <div className="flex items-center p-4 bg-slate-50 dark:bg-slate-900 rounded-none sm:rounded-t-lg">
       <Avatar>
         <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-        <AvatarFallback>C</AvatarFallback>
+        <AvatarFallback>N</AvatarFallback>
       </Avatar>
 
       <h3 className="ml-2 text-md font-semibold">Newton</h3>
