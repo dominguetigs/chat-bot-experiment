@@ -15,7 +15,13 @@ export function ChatContent() {
 
   useEffect(() => {
     if (!isLoading) {
-      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+      if (messagesEndRef.current) {
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+          messagesEndRef.current.scrollIntoView();
+        } else {
+          messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     }
   }, [messages, isLoading]);
 
